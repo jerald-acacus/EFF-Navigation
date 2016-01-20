@@ -119,7 +119,7 @@
     }
     
     // If file is not yet in our directory, we download it.
-    NSString *url = [NSString stringWithFormat:@"http://192.168.0.106/~jeraldabille/EFF/%@",eff.name];
+    NSString *url = [NSString stringWithFormat:@"http://192.168.0.114/~jeraldabille/EFF/%@",eff.name];
     NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:config];
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];

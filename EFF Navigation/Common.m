@@ -26,15 +26,32 @@
     NSString *src = [NSString stringWithFormat:@"%@/%@",[Common effFolderPath], file];
     NSString *dest = [NSString stringWithFormat:@"%@/%@.zip",[Common effFolderPath], [file stringByDeletingPathExtension]];
     
+    NSLog(@"RENAME SRC %@",src);
+    NSLog(@"RENAME DEST %@",dest);
+    
     NSFileManager *manager = [NSFileManager defaultManager];
     if ([manager fileExistsAtPath:src]) {
-        [manager moveItemAtPath:src toPath:dest error:&error];
-        if (error.code == 516) {
+        if ([manager moveItemAtPath:src toPath:dest error:&error]) {
+            if (error) {
+                if (error.code == 516) {
+                    NSLog(@"Error 516 %@",error.localizedDescription);
+                    return dest;
+                }
+                else {
+                    NSLog(@"Error renaming file. %@",error.localizedDescription);
+                    // ????: Delete file if failed?
+                }
+            }
             return dest;
         }
-        return dest;
+        else {
+            NSLog(@"Error moving item.");
+            return nil;
+        }
+        
     }
     else {
+        NSLog(@"File being renamed does not exist.");
         return dest;
     }
     return nil;
@@ -47,6 +64,8 @@
     if (![manager fileExistsAtPath:dest]) {
         [manager createDirectoryAtPath:dest withIntermediateDirectories:NO attributes:nil error:&err];
     }
+    NSLog(@"EXTRACT SRC %@",file);
+    NSLog(@"EXTRACT DEST %@",dest);
 
     [SSZipArchive unzipFileAtPath:file toDestination:dest progressHandler:^(NSString *entry, unz_file_info zipInfo, long entryNumber, long total) {
         
@@ -178,6 +197,11 @@
                      @{@"name":@"NOTOC"},
                      ]
              };
+}
+
++ (NSString *)effJSON {
+    // return @"http://www.json-generator.com/api/json/get/bUGcijsmWa?indent=2";
+    return @"http://192.168.0.117/~jeraldabille/subfolder.json";
 }
 
 @end

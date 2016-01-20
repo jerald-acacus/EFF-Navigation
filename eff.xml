@@ -1,0 +1,30 @@
+<SubFolder title="_Root_Folder_">
+    <SubFolder title="NOTAMS">
+        <Topic name="NOTAM/6.0 Crew Additional Info"/>
+        <Topic name="NOTAM/0.0 NOTAMS Validity"/>
+        <Topic name="NOTAM/1.0 Dep "/>
+        <Topic name="NOTAM/2.0 Dest "/>
+        <Topic name="NOTAM/2.1 Dest Alt "/>
+        <Topic name="NOTAM/4.0 Enroute Airports"/>
+        <Topic name="NOTAM/0.1 Crew Alert"/>
+        <Topic name="NOTAM/0.2 Crew Buletin"/>
+        <Document authorProfile="dispatcher" captainOnly="0" mandatory="1" originalDateTime="2015-11-06T05:13:45+00:00" priority="0" status="None" title="CrewInfo" transferPending="0" updateDateTime="2015-11-06T05:13:45+00:00" id="file1" file="CrewAdditionalInfo.txt" type="text/plain">
+            <Topic name="NOTAM/6.0 Crew Additional Info"/>
+        </Document>
+        <Document authorProfile="dispatcher" captainOnly="0" mandatory="0" originalDateTime="2015-11-06T05:13:45+00:00" priority="0" status="None" title="NOTAM validity" transferPending="0" updateDateTime="2015-11-06T05:13:45+00:00" id="file2" file="NOTAM validity.txt" type="text/plain">
+            <Topic name="NOTAM/0.0 NOTAMS Validity"/>
+        </Document>
+        <Document authorProfile="dispatcher" captainOnly="0" mandatory="0" originalDateTime="2015-11-06T05:13:45+00:00" priority="0" status="None" title="Departure NOTAM " transferPending="0" updateDateTime="2015-11-06T05:13:45+00:00" id="file3" file="Departure NOTAM OMAA.txt" type="text/plain">
+            <Topic name="NOTAM/1.0 Dep "/>
+        </Document>
+        <Document authorProfile="dispatcher" captainOnly="0" mandatory="0" originalDateTime="2015-11-06T05:13:45+00:00" priority="0" status="None" title="Destination NOTAM " transferPending="0" updateDateTime="2015-11-06T05:13:45+00:00" id="file4" file="Destination NOTAM EDDM.txt" type="text/plain">
+            <Topic name="NOTAM/2.0 Dest "/>
+        </Document>
+        <Document authorProfile="dispatcher" captainOnly="0" mandatory="0" originalDateTime="2015-11-06T05:13:45+00:00" priority="0" status="None" title="Altn NOTAM " transferPending="0" updateDateTime="2015-11-06T05:13:45+00:00" id="file5" file="Altn NOTAM EDDF.txt" type="text/plain">
+            <Topic name="NOTAM/2.1 Dest Alt "/>
+        </Document>
+        <Document authorProfile="dispatcher" captainOnly="0" mandatory="0" originalDateTime="2015-11-06T05:13:45+00:00" priority="0" status="None" title="Altn NOTAM " transferPending="0" updateDateTime="2015-11-06T05:13:45+00:00" id="file6" file="Altn NOTAM EDDN.txt" type="text/plain">
+            <Topic name="NOTAM/2.1 Dest Alt "/>
+        </Document>
+    </SubFolder>
+</SubFolder>

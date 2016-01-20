@@ -7,12 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EFF.h"
+
+@protocol EFFFileListDelegate <NSObject>
+
+@optional
+- (void)setCurrentEFF:(EFF *)eff;
+
+@end
 
 @interface EFFFileListTableViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 {
     NSMutableArray *filesArray;
     NSInteger currentFileSource;
 }
+
+@property (nonatomic, weak) id<EFFFileListDelegate>delegate;
+
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) IBOutlet UISegmentedControl *segmentedControl;
 

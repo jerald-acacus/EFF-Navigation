@@ -1,0 +1,74 @@
+{
+    "M633SupplementaryHeader": {
+        "aircraft": {
+            "aircraftModel": {
+                "aircraftICAOType": "B77W"
+            },
+            "aircraftRegistration": "A6ETK"
+        },
+        "flight": {
+            "flightIdentification": "ETD4444R",
+            "flightNumber": {
+                "commercialFlightNumber": "EY4444R",
+                "airlineIATACode": "EY",
+                "number": 4444
+            },
+            "departureAirport": {
+                "airportICAOCode": "OMAA",
+                "airportIATACode": "AUH"
+            },
+            "arrivalAirport": {
+                "airportICAOCode": "EDDM",
+                "airportIATACode": "MUC"
+            }
+        },
+        "flightOriginDate": "2015-11-06",
+        "scheduledTimeOfDeparture": "2015-11-06T22:10:00"
+    },
+    "subfolders": [
+                   {
+                   "folder": "NOTAMS",
+                   "topics": [
+                              "NOTAM/6.0 Crew Additonal Info",
+                              "NOTAM/0.0 NOTAMS Validity",
+                              "NOTAM/1.0 Dep",
+                              "NOTAM/2.0 Dest",
+                              "NOTAM/2.1 Dest Alt",
+                              "NOTAM/4.0 Enroute Airports",
+                              "NOTAM/0.1 Crew Alert",
+                              "NOTAM/0.2 Crew Buletin"
+                              ],
+                   "documents": [
+                                 {
+                                 "topic": "NOTAM/6.0 Crew Additional Info",
+                                 "title": "CrewInfo",
+                                 "file": "CrewAdditionalInfo.txt",
+                                 "type": "text/plain"
+                                 },
+                                 {
+                                 "topic": "NOTAM/0.0 NOTAMS Validity",
+                                 "title": "NOTAM validity",
+                                 "file": "NOTAM validity.txt",
+                                 "type": "text/plain"
+                                 },
+                                 {
+                                 "topic": "NOTAM/1.0 Dep",
+                                 "title": "Departure NOTAM",
+                                 "file": "Departure NOTAM OMAA.txt",
+                                 "type": "text/plain"
+                                 },
+                                 {
+                                 "topic": "NOTAM/2.0 Dest",
+                                 "title": "Destination NOTAM",
+                                 "file": "Destination NOTAM EDDM.txt",
+                                 "type": "text/plain"
+                                 }
+                                 ]
+                   },
+                   {
+                   "folder": "",
+                   "topics": [],
+                   "documents": []
+                   }
+                   ]
+}

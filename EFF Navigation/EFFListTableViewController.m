@@ -59,6 +59,10 @@
     if (topic.documents.count > 1) {
         
     }
+    
+    
+    
+    NSLog(@"%@",topic.name);
 }
 
 /*

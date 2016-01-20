@@ -10,7 +10,7 @@
 
 @interface EFF : NSObject
 
-@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *name; // name or file name.
 @property (nonatomic, strong) NSString *flightIdentifier;
 @property (nonatomic, strong) NSString *departureAirport;
 @property (nonatomic, strong) NSString *arrivalAirport;

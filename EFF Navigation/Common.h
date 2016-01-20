@@ -16,5 +16,6 @@
 + (void)extractFile:(NSString *)file success:(void (^)(NSArray *files))successBlock failure:(void (^)(NSError *error))failureBlock;
 
 + (NSDictionary *)test;
++ (NSString *)effJSON;
 
 @end

@@ -37,8 +37,15 @@
 		340284741C043EDB00B5F560 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 340284731C043EDB00B5F560 /* libz.tbd */; };
 		340284771C046F8100B5F560 /* EFFReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 340284761C046F8100B5F560 /* EFFReaderViewController.m */; };
 		3402847A1C04707400B5F560 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 340284791C04707400B5F560 /* Common.m */; };
+		3406A5D51C0C3C95007B0474 /* EFFTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = 3406A5D41C0C3C95007B0474 /* EFFTopic.m */; };
 		340D65331C0ACCD400813A4D /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 340D65321C0ACCD400813A4D /* User.m */; };
+		340D65391C0B313B00813A4D /* EFFDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 340D65381C0B313B00813A4D /* EFFDocument.m */; };
+		340D653C1C0B319C00813A4D /* EFFSubFolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 340D653B1C0B319C00813A4D /* EFFSubFolder.m */; };
+		340D653E1C0C141B00813A4D /* eff.json in Resources */ = {isa = PBXBuildFile; fileRef = 340D653D1C0C141B00813A4D /* eff.json */; };
 		346FD0271C06F59C0070BD0F /* EFFFileListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 346FD0261C06F59C0070BD0F /* EFFFileListTableViewController.m */; };
+		347C76051C16A16600E0FCAF /* eff.xml in Resources */ = {isa = PBXBuildFile; fileRef = 347C76041C16A16600E0FCAF /* eff.xml */; };
+		348F821D1C1D7F3A00F28507 /* list.php in Resources */ = {isa = PBXBuildFile; fileRef = 348F821C1C1D7F3A00F28507 /* list.php */; };
+		34B218061C16E2100052B113 /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 34B218051C16E2100052B113 /* XMLReader.m */; };
 		34CBB4571C05B72A00B56127 /* EFFFileReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34CBB4561C05B72A00B56127 /* EFFFileReaderViewController.m */; };
 		34CBB45A1C05B92B00B56127 /* EFFListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34CBB4591C05B92B00B56127 /* EFFListTableViewController.m */; };
 		34CBB45D1C05E3AD00B56127 /* Topic.m in Sources */ = {isa = PBXBuildFile; fileRef = 34CBB45C1C05E3AD00B56127 /* Topic.m */; };
@@ -104,10 +111,21 @@
 		340284761C046F8100B5F560 /* EFFReaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFFReaderViewController.m; sourceTree = "<group>"; };
 		340284781C04707400B5F560 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		340284791C04707400B5F560 /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
+		3406A5D31C0C3C95007B0474 /* EFFTopic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFFTopic.h; sourceTree = "<group>"; };
+		3406A5D41C0C3C95007B0474 /* EFFTopic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFFTopic.m; sourceTree = "<group>"; };
 		340D65311C0ACCD400813A4D /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		340D65321C0ACCD400813A4D /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		340D65371C0B313B00813A4D /* EFFDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFFDocument.h; sourceTree = "<group>"; };
+		340D65381C0B313B00813A4D /* EFFDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFFDocument.m; sourceTree = "<group>"; };
+		340D653A1C0B319C00813A4D /* EFFSubFolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFFSubFolder.h; sourceTree = "<group>"; };
+		340D653B1C0B319C00813A4D /* EFFSubFolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFFSubFolder.m; sourceTree = "<group>"; };
+		340D653D1C0C141B00813A4D /* eff.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = eff.json; sourceTree = "<group>"; };
 		346FD0251C06F59C0070BD0F /* EFFFileListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFFFileListTableViewController.h; sourceTree = "<group>"; };
 		346FD0261C06F59C0070BD0F /* EFFFileListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFFFileListTableViewController.m; sourceTree = "<group>"; };
+		347C76041C16A16600E0FCAF /* eff.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = eff.xml; sourceTree = "<group>"; };
+		348F821C1C1D7F3A00F28507 /* list.php */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.php; path = list.php; sourceTree = "<group>"; };
+		34B218041C16E2100052B113 /* XMLReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLReader.h; sourceTree = "<group>"; };
+		34B218051C16E2100052B113 /* XMLReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLReader.m; sourceTree = "<group>"; };
 		34CBB4551C05B72A00B56127 /* EFFFileReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFFFileReaderViewController.h; sourceTree = "<group>"; };
 		34CBB4561C05B72A00B56127 /* EFFFileReaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFFFileReaderViewController.m; sourceTree = "<group>"; };
 		34CBB4581C05B92B00B56127 /* EFFListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFFListTableViewController.h; sourceTree = "<group>"; };
@@ -131,6 +149,11 @@
 		340284051C02EE2E00B5F560 = {
 			isa = PBXGroup;
 			children = (
+				348F821C1C1D7F3A00F28507 /* list.php */,
+				34B218041C16E2100052B113 /* XMLReader.h */,
+				34B218051C16E2100052B113 /* XMLReader.m */,
+				347C76041C16A16600E0FCAF /* eff.xml */,
+				340D653D1C0C141B00813A4D /* eff.json */,
 				340284731C043EDB00B5F560 /* libz.tbd */,
 				340284281C02FF0800B5F560 /* Libraries */,
 				340284101C02EE2E00B5F560 /* EFF Navigation */,
@@ -153,6 +176,12 @@
 				340284791C04707400B5F560 /* Common.m */,
 				340284461C030C3000B5F560 /* EFF.h */,
 				340284471C030C3000B5F560 /* EFF.m */,
+				340D65371C0B313B00813A4D /* EFFDocument.h */,
+				340D65381C0B313B00813A4D /* EFFDocument.m */,
+				340D653A1C0B319C00813A4D /* EFFSubFolder.h */,
+				340D653B1C0B319C00813A4D /* EFFSubFolder.m */,
+				3406A5D31C0C3C95007B0474 /* EFFTopic.h */,
+				3406A5D41C0C3C95007B0474 /* EFFTopic.m */,
 				340D65311C0ACCD400813A4D /* User.h */,
 				340D65321C0ACCD400813A4D /* User.m */,
 				340284141C02EE2E00B5F560 /* AppDelegate.h */,
@@ -327,9 +356,12 @@
 			files = (
 				340284211C02EE2E00B5F560 /* LaunchScreen.storyboard in Resources */,
 				3402841E1C02EE2E00B5F560 /* Assets.xcassets in Resources */,
+				348F821D1C1D7F3A00F28507 /* list.php in Resources */,
 				3402845F1C03368700B5F560 /* EFFTableViewCell.xib in Resources */,
 				3402841C1C02EE2E00B5F560 /* Main.storyboard in Resources */,
 				340284531C03236600B5F560 /* SVProgressHUD.bundle in Resources */,
+				347C76051C16A16600E0FCAF /* eff.xml in Resources */,
+				340D653E1C0C141B00813A4D /* eff.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,6 +380,7 @@
 				3402843E1C02FF1800B5F560 /* AFHTTPRequestOperationManager.m in Sources */,
 				340284701C043EC500B5F560 /* unzip.c in Sources */,
 				340284401C02FF1800B5F560 /* AFNetworkReachabilityManager.m in Sources */,
+				340D65391C0B313B00813A4D /* EFFDocument.m in Sources */,
 				3402846E1C043EC500B5F560 /* ioapi.c in Sources */,
 				340284441C02FF1800B5F560 /* AFURLResponseSerialization.m in Sources */,
 				340284721C043EC500B5F560 /* SSZipArchive.m in Sources */,
@@ -360,11 +393,14 @@
 				3402843F1C02FF1800B5F560 /* AFHTTPSessionManager.m in Sources */,
 				346FD0271C06F59C0070BD0F /* EFFFileListTableViewController.m in Sources */,
 				340284431C02FF1800B5F560 /* AFURLRequestSerialization.m in Sources */,
+				3406A5D51C0C3C95007B0474 /* EFFTopic.m in Sources */,
 				340284451C02FF1800B5F560 /* AFURLSessionManager.m in Sources */,
 				340284161C02EE2E00B5F560 /* AppDelegate.m in Sources */,
 				340284711C043EC500B5F560 /* zip.c in Sources */,
 				34CBB45A1C05B92B00B56127 /* EFFListTableViewController.m in Sources */,
+				340D653C1C0B319C00813A4D /* EFFSubFolder.m in Sources */,
 				340D65331C0ACCD400813A4D /* User.m in Sources */,
+				34B218061C16E2100052B113 /* XMLReader.m in Sources */,
 				34CBB4571C05B72A00B56127 /* EFFFileReaderViewController.m in Sources */,
 				340284481C030C3000B5F560 /* EFF.m in Sources */,
 				340284771C046F8100B5F560 /* EFFReaderViewController.m in Sources */,

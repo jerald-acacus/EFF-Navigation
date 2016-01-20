@@ -7,11 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "EFF.h"
 
 @interface User : NSObject
 
 + (id)sharedInstance;
 
-@property (nonatomic, strong) NSDictionary *EFF;
+@property (nonatomic, strong) EFF *eff;
+@property (nonatomic, strong) NSMutableArray *EFFArray;
 
 @end

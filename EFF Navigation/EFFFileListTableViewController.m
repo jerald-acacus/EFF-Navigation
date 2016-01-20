@@ -28,6 +28,8 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
+    self.title = @"EFF Download List";
+    
     [_tableView registerNib:[UINib nibWithNibName:@"EFFTableViewCell"
                                            bundle:[NSBundle mainBundle]]
                            forCellReuseIdentifier:@"cell"];
@@ -90,24 +92,31 @@
     [filesArray removeAllObjects];
     NSString *filePath = [Common effFolderPath];
     NSError *error;
-    NSArray *localFiles = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:filePath error:&error];
+    NSArray *localFiles = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:filePath error:&error]; // Get contents of EFF Folder
     for (NSString *file in localFiles) {
-        NSString *fileName = [file stringByAppendingPathExtension:@"eff"];
-        EFF *eff = [[EFF alloc] init];
-        eff.name = fileName;
-        NSArray *words = [file componentsSeparatedByString:@"_"];
-        eff.flightIdentifier = words[1];
-        eff.departureAirport = words[3];
-        eff.arrivalAirport = words[4];
-        eff.aircraftRegistration = words[0];
-        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-        [formatter setDateFormat:@"yyyy-M-d"];
-        NSString *d = [words[2] substringWithRange:NSMakeRange(4, 2)];
-        NSString *m = [words[2] substringWithRange:NSMakeRange(2, 2)];
-        NSString *y = [words[2] substringWithRange:NSMakeRange(0, 2)];
-        y = [@"20" stringByAppendingString:y];
-        eff.date = [formatter dateFromString:[NSString stringWithFormat:@"%@-%@-%@",y,m,d]];
-        [filesArray addObject:eff];
+        NSLog(@"FILE %@",file);
+        BOOL isDir = YES;
+        if ([[NSFileManager defaultManager] fileExistsAtPath:[filePath stringByAppendingPathComponent:file] isDirectory:&isDir]) { // Check if directory exist
+            NSArray *contents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:[filePath stringByAppendingPathComponent:file] error:nil]; // Check if directory has 1 or more contents.
+            if (contents.count > 0) {
+                NSString *fileName = [file stringByAppendingPathExtension:@"eff"];
+                EFF *eff = [[EFF alloc] init];
+                eff.name = fileName;
+                NSArray *words = [file componentsSeparatedByString:@"_"];
+                eff.flightIdentifier = words[1];
+                eff.departureAirport = words[3];
+                eff.arrivalAirport = words[4];
+                eff.aircraftRegistration = words[0];
+                NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+                [formatter setDateFormat:@"yyyy-M-d"];
+                NSString *d = [words[2] substringWithRange:NSMakeRange(4, 2)];
+                NSString *m = [words[2] substringWithRange:NSMakeRange(2, 2)];
+                NSString *y = [words[2] substringWithRange:NSMakeRange(0, 2)];
+                y = [@"20" stringByAppendingString:y];
+                eff.date = [formatter dateFromString:[NSString stringWithFormat:@"%@-%@-%@",y,m,d]];
+                [filesArray addObject:eff];
+            }
+        }
     }
     [_tableView reloadData];
 }
@@ -154,7 +163,8 @@
     
     BOOL isDir = NO;
     NSString *filePath = [[[Common effFolderPath] stringByAppendingString:@"/"] stringByAppendingString:[eff.name stringByDeletingPathExtension]];
-    if ([[NSFileManager defaultManager] fileExistsAtPath:filePath isDirectory:&isDir]) {
+    NSArray *contents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:filePath error:nil];
+    if ([[NSFileManager defaultManager] fileExistsAtPath:filePath isDirectory:&isDir] && (contents.count > 0)) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     }
     else {
@@ -168,15 +178,20 @@
     EFF *eff = [filesArray objectAtIndex:indexPath.row];
     
     NSString *path = [NSString stringWithFormat:@"%@/%@", [Common effFolderPath], [eff.name stringByDeletingPathExtension]];
-    if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
+    NSArray *contents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:path error:nil];
+    
+    if ([[NSFileManager defaultManager] fileExistsAtPath:path] && (contents.count > 0)) {
         // Set the selected EFF to be current EFF.
-        NSLog(@"Set the selected EFF to be current EFF.");
+        NSLog(@"Set the selected EFF to be current EFF. %@",path);
+        [self dismissViewControllerAnimated:YES completion:^{
+            [self.delegate setCurrentEFF:eff];
+        }];
         return;
     }
     
     if (_segmentedControl.selectedSegmentIndex == 0) { // online, we download it.
         [SVProgressHUD showWithStatus:@"Downloading..."];
-        NSString *url = [@"http://192.168.0.106/~jeraldabille/EFF/" stringByAppendingString:eff.name];
+        NSString *url = [@"http://192.168.0.108/~jeraldabille/EFF/" stringByAppendingString:eff.name];
         NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
         AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:config];
         NSURLRequest *req = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
@@ -185,10 +200,12 @@
             
             NSError *error;
             NSURL *urlForDirectory = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:YES error:&error];
-            return [urlForDirectory URLByAppendingPathComponent:[@"EFFs/" stringByAppendingString:[response suggestedFilename]]];
+            NSLog(@"--- %@",[urlForDirectory URLByAppendingPathComponent:[@"EFFs/" stringByAppendingString:[response suggestedFilename]]]);
+            NSLog(@"+++ %@",[urlForDirectory URLByAppendingPathComponent:[@"EFFs" stringByAppendingPathComponent:[response suggestedFilename]]]);
+            return [urlForDirectory URLByAppendingPathComponent:[@"EFFs" stringByAppendingPathComponent:[response suggestedFilename]]];
             
         } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
-            
+            NSLog(@"File Path after completion %@",filePath);
             [Common extractFile:[Common renameFile:[filePath lastPathComponent]] success:^(NSArray *files) {
                // TODO: .dat file is not always <fileName>.dat, sometimes it can be myEFF.dat. So we just get the file with the .dat file extension.
                 NSString *dat = [NSString stringWithFormat:@"%@/%@.dat",
@@ -200,10 +217,12 @@
                     [_tableView reloadData];
                     [SVProgressHUD showSuccessWithStatus:@"File downloaded."];
                 } failure:^(NSError *error) {
+                    [SVProgressHUD dismiss];
                     NSLog(@"Error extracting .dat file. %@",error.localizedDescription);
                 }];
                 
             } failure:^(NSError *error) {
+                [SVProgressHUD dismiss];
                 NSLog(@"Error extracting .eff file. %@",error.localizedDescription);
             }];
             

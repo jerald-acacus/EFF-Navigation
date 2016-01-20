@@ -9,13 +9,36 @@
 #import <UIKit/UIKit.h>
 #import "EFF.h"
 #import "User.h"
+#import "EFFFileListTableViewController.h"
+#import "EFFDocument.h"
+#import "EFFTopic.h"
+#import "EFFSubFolder.h"
 
-@interface EFFReaderViewController : UIViewController <NSXMLParserDelegate>
+@interface EFFReaderViewController : UIViewController <NSXMLParserDelegate, EFFFileListDelegate, UIPopoverPresentationControllerDelegate>
 {
+    // XML Parsing
+    NSString *xmlElement;
+    NSDictionary *xmlAttrib;
+    EFFSubFolder *xmlSubFolder;
+    NSMutableArray *xmlSubFolderTopics;
+    EFFTopic *xmlTopic;
+    EFFDocument *xmlDocument;
+    NSMutableArray *tempTopicsArray;
+    BOOL isSubFolder;
+    
+    NSString *currentTitle;
+    NSString *currentSubFolder;
+    EFFSubFolder *secondLevelSubFolder;
+    
     User *user;
     
     NSMutableArray *subFolderButtons;
-    NSMutableArray *subFolders;
+    
+//    NSMutableArray *subFolders;
+//    NSString *currentTitle;
+//    NSMutableDictionary *subFolder;
+//    NSMutableDictionary *topicDict;
+    
     NSMutableArray *weatherArray;
     NSMutableArray *notamsArray;
     NSMutableArray *flightPlanArray;
@@ -23,7 +46,6 @@
     NSMutableArray *notocArray;
     NSMutableArray *paperFlightPlanArray;
     
-    NSString *currentSubFolder;
     NSString *currentTopic;
     NSString *currentFile;
 
